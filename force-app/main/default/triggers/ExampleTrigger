@@ -1,9 +1,12 @@
 
-trigger CaseLegalUpdate on Legal_Description__c (after insert, after update) { 
-    if (trigger.isAfter ){
-		if( trigger.isInsert || trigger.isUpdate) 
-		{
-			LegalDescriptionHandler.CaseLegalmethod(trigger.new);
-		}
-	}	
+/*********************************************************************
+* @author       Linda Monserrat lopez Olivera Ortiz
+* @description  Account Naming Trigger For Inserting Records
+* @date         2021-08-18
+* @group        Record Trigger
+**********************************************************************/
+trigger HelloWorldTrigger on Account (before insert) {
+    for(Account a : Trigger.New) {
+        a.Description = 'New Account';
+    }   
 }
